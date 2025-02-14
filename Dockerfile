@@ -14,8 +14,8 @@ COPY . .
 # Build the application (if needed, e.g., for TypeScript or React)
 # RUN npm run build
 
-# Expose port 3000
-EXPOSE 3000
+# Expose port 8080
+EXPOSE 8080
 
 # Command to run the app
 CMD ["npm", "start"]
