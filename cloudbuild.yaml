@@ -20,8 +20,8 @@ steps:
       - 'us-central1'
       - '--platform'
       - 'managed'
-      - '--env-vars'
-      - 'PORT=3000'  # Set the environment variable to use port 3000 for Cloud Run
+      - '--set-env-vars'
+      - '--port=3000'  # Set the environment variable to use port 3000 for Cloud Run
       - '--allow-unauthenticated'  # Make the service accessible without authentication
 
 options:
