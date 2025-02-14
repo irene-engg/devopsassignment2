@@ -20,8 +20,6 @@ steps:
       - 'us-central1'
       - '--platform'
       - 'managed'
-      - '--set-env-vars'
-      - 'PORT=3000'  # Correct way to pass the environment variable
       - '--allow-unauthenticated'  # Make the service accessible without authentication
 
 options:
