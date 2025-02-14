@@ -7,19 +7,22 @@ steps:
   - name: 'gcr.io/cloud-builders/docker'
     args: ['push', 'us-central1-docker.pkg.dev/angular-land-438802-e4/new-dev/assignment2:${COMMIT_SHA}']
 
-  # Step 3: Deploy the container to Google Cloud Run using Google Cloud SDK
+  # Step 3: Deploy to Google Cloud Run with Port 3000 and Unauthenticated Access
   - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
     args:
       - 'gcloud'
       - 'run'
       - 'deploy'
-      - 'assignment2'  # The name of your Cloud Run service
+      - 'assignment2'  # The Cloud Run service name
       - '--image'
       - 'us-central1-docker.pkg.dev/angular-land-438802-e4/new-dev/assignment2:${COMMIT_SHA}'
       - '--region'
-      - 'us-central1'  # The region to deploy the Cloud Run service
+      - 'us-central1'
       - '--platform'
-      - 'managed'  # Deploying to the managed platform
+      - 'managed'
+      - '--env-vars'
+      - 'PORT=3000'  # Set the environment variable to use port 3000 for Cloud Run
+      - '--allow-unauthenticated'  # Make the service accessible without authentication
 
 options:
   defaultLogsBucketBehavior: REGIONAL_USER_OWNED_BUCKET
